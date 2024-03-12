@@ -13,7 +13,7 @@
     devShells."${system}".default = pkgs.mkShell {
       packages = [
         pkgs.poetry
-        pkgs.pyright
+        pkgs.python311Packages.python-lsp-server
         pkgs.ruff
       ];
     };
