@@ -10,6 +10,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.11"
+quart = "^0.19.4"
 
 [tool.poetry.dev-dependencies]
 python = "^3.11"

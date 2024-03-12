@@ -1,0 +1,73 @@
+nav {
+  border-bottom: .15rem solid black;
+  width: 100%;
+}
+
+nav .title {
+  flex-grow: 1;
+}
+
+nav .right-aligned-nav * {
+  margin: 0.25rem;
+}
+
+.nav-content-wrapper {
+  padding: 1rem;
+  display: flex;
+  /* subtract 2rem for padding so it
+     doesn't overflow with padding. */
+  width: calc(100% - 2rem);
+  margin: auto;
+  max-width: 90rem;
+}
+
+.banner {
+  width: 100%;
+  min-height: 30vh;
+  height: 40rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  font-family: Roboto;
+}
+
+.banner .banner-content h1 {
+  margin: 1rem 0;
+  font-size: 5rem;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.cards {
+  flex-direction: row;
+  display: flex;
+  align-items: top;
+  justify-content: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 26rem;
+  text-align: center;
+}
+.card img {
+  height: 16rem;
+  width: 24rem;
+  margin: 1rem min(5rem, max(.5rem, calc(80vw / 6 - 12rem)));
+  padding: 0;
+}
+
+footer {
+  border-top: .15rem solid black;
+  padding: 1rem;
+  /* subtract 2rem for padding so it
+     doesn't overflow with padding. */
+  width: calc(100% - 2rem);
+}
