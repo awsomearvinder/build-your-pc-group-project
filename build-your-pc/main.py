@@ -14,6 +14,11 @@ app = Quart(__name__, static_folder=None, static_url_path=None)
 cfg = util.Config(Path(os.getenv("BYPC_CONFIG") or "config.toml"))
 
 
+@app.before_serving
+async def init():
+    await cfg.init()
+
+
 @app.route("/")
 async def hello():
     return await render_template("index.html")
@@ -49,7 +54,18 @@ async def register() -> Tuple[Dict[str, str], int]:
             400,
         )
 
-    await auth.register(cfg, content["username"], content["password"], content["email"])
+    try:
+        await auth.register(
+            cfg, content["username"], content["password"], content["email"]
+        )
+    except util.UserAlreadyExists as e:
+        return (
+            {
+                "cause": f"User {content['username']} already exists",
+                "error": e.__class__.__name__,
+            },
+            400,
+        )
     return ({}, 200)
 
 

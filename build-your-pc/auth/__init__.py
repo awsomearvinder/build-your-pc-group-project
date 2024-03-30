@@ -1,3 +1,6 @@
-async def register(cfg, username: str, password: str, email: str):
-    # TODO: actually hash it and add it to the database
-    pass
+from util import Config
+
+
+async def register(cfg: Config, username: str, password: str, email: str):
+    user = await cfg.add_user(username, password, email)
+    print(user)
