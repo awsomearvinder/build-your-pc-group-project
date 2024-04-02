@@ -4,11 +4,13 @@
     <div class="auth-container">
         <div class="auth-content">
             <h1>Login</h1>
-            <label for="login-user">Username</label>
-            <input id="login-user" type="text">
-            <label for="login-pass">Password</label>
-            <input id="login-pass" type="password">
-            <button>Login</button>
+            <form id="form-login">
+                <label for="login-user">Username</label>
+                <input id="login-user" type="text" required>
+                <label for="login-pass">Password</label>
+                <input id="login-pass" type="password" required>
+                <button type="submit">Login</button>
+            </form>
             <a href="/registration">Register for an account!</a>
         </div>
     </div>
