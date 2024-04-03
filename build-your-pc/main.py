@@ -55,7 +55,7 @@ async def register() -> Tuple[Dict[str, str], int]:
         )
 
     try:
-        await auth.register(
+        _, token = await auth.register(
             cfg, content["username"], content["password"], content["email"]
         )
     except util.UserAlreadyExists as e:
@@ -66,7 +66,7 @@ async def register() -> Tuple[Dict[str, str], int]:
             },
             400,
         )
-    return ({}, 200)
+    return ({"token": token.token.hex}, 200)
 
 
 @app.route("/static/<path:path>")
