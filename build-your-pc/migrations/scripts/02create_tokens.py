@@ -2,7 +2,7 @@ async def run(db_conn):
     await db_conn.execute(
         """
         CREATE TABLE tokens(
-            username TEXT NOT NULL UNIQUE,
+            username TEXT NOT NULL,
             token TEXT NOT NULL,
             expiration INT NOT NULL
         )

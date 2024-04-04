@@ -69,6 +69,47 @@ async def register() -> Tuple[Dict[str, str], int]:
     return ({"token": token.token.hex}, 200)
 
 
+LOGIN_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "username": {"type": "string"},
+        "password": {"type": "string"},
+    },
+    "required": ["username", "password"],
+}
+
+
+@app.route("/login", methods=["POST"])
+async def login() -> Tuple[Dict[str, str], int]:
+    content = await request.json
+    try:
+        validate(content, LOGIN_SCHEMA)
+    except ValidationError as e:
+        return (
+            {
+                "cause": e.message,
+                "error": e.__class__.__name__,
+            },
+            400,
+        )
+
+    try:
+        _, token = await auth.login(
+            cfg,
+            content["username"],
+            content["password"],
+        )
+    except util.WrongUsernameOrPassword as e:
+        return (
+            {
+                "cause": f"Wrong Username or Password!",
+                "error": e.__class__.__name__,
+            },
+            401,
+        )
+    return ({"token": token.token.hex}, 200)
+
+
 @app.route("/static/<path:path>")
 async def static(path):
     return await send_from_directory("static", path)
