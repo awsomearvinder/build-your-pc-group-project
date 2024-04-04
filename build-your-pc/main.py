@@ -1,7 +1,7 @@
 from pathlib import Path
 import os
 
-from quart import Quart, render_template, send_from_directory, request, session, redirect
+from quart import Quart, render_template, send_from_directory, request, session, redirect, Response
 from jsonschema import ValidationError, validate
 from typing import Tuple, Dict
 
@@ -88,6 +88,14 @@ LOGIN_SCHEMA = {
     "required": ["username", "password"],
 }
 
+@app.route("/logout", methods=["GET"])
+async def logout() -> Response:
+    try:
+        session.pop("token")
+    except:
+        pass
+    resp = redirect("/")
+    return resp
 
 @app.route("/login", methods=["POST"])
 async def login() -> Tuple[Dict[str, str], int]:

@@ -16,7 +16,11 @@
         <div class = "right-aligned-nav">
           <a href="/"> Home </a>
           <a href="/parts"> Parts </a>
-          <a href="/auth"> Register|Login </a>
+          {% if session.token is defined %}
+            <a href="/logout"> Logout </a>
+          {% else %}
+            <a href="/auth"> Register|Login </a>
+          {% endif %}
         </div>
       </div>
     </nav>
