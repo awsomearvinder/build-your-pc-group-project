@@ -1,4 +1,5 @@
 from aiosqlite import Connection, Error, IntegrityError, connect
+import aiosqlite
 from argon2 import PasswordHasher
 
 from pathlib import Path
@@ -17,6 +18,11 @@ class User:
 
 
 class UserAlreadyExists(Error):
+    def __init__(self):
+        pass
+
+
+class WrongUsernameOrPassword(Error):
     def __init__(self):
         pass
 
@@ -45,7 +51,19 @@ class Config:
 
     async def init(self):
         await self._db_conn
+        self._db_conn.row_factory = aiosqlite.Row
         await migrate(self._db_conn)
+
+    async def _generate_token(self, username: str) -> Token:
+        id = uuid.uuid4()
+        token = await self._db_conn.execute(
+            "INSERT INTO tokens (username, token, expiration) VALUES (?, ?, ?)",
+            (username, str(id), int(time.time()) + self.expiration_time),
+        )
+        token = await token.fetchone()
+        await self._db_conn.commit()
+
+        return Token(id)
 
     async def add_user(
         self, username: str, password: str, email: str
@@ -61,16 +79,36 @@ class Config:
         except IntegrityError:
             raise UserAlreadyExists()
 
-        id = uuid.uuid4()
-        token = await self._db_conn.execute(
-            "INSERT INTO tokens (username, token, expiration) VALUES (?, ?, ?)",
-            (username, str(id), int(time.time()) + self.expiration_time),
-        )
-        token = await token.fetchone()
+        token = await self._generate_token(username)
+
         # The user *should* be generated at this point.
         if user_id == None:
             raise TypeError()
 
         await self._db_conn.commit()
 
-        return (User(username, user_id[0]), Token(id))
+        return (User(username, user_id[0]), token)
+
+    async def login_user(self, username: str, password: str) -> tuple[User, Token]:
+        user = await self._db_conn.execute(
+            "SELECT * FROM users WHERE username = ?", (username,)
+        )
+        user = await user.fetchone()
+        if user == None:
+            raise WrongUsernameOrPassword()  # We do not let *anyone* know whether a user exists or not
+            # via login attempts.
+
+        if not self._hasher.verify(user["hash"], password):
+            raise WrongUsernameOrPassword()
+
+        # set a new hash if we updated our password config.
+        if self._hasher.check_needs_rehash(user["hash"]):
+            hash = self._hasher.hash(password)
+            await self._db_conn.execute(
+                "UPDATE users SET hash = ? WHERE username  = ?", (hash, username)
+            )
+            await self._db_conn.commit()
+
+        user = User(user["username"], user["id"])
+        token = await self._generate_token(username)
+        return (user, token)
