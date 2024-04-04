@@ -1,7 +1,7 @@
 from pathlib import Path
 import os
 
-from quart import Quart, render_template, send_from_directory, request
+from quart import Quart, render_template, send_from_directory, request, session, redirect
 from jsonschema import ValidationError, validate
 from typing import Tuple, Dict
 
@@ -17,6 +17,7 @@ cfg = util.Config(Path(os.getenv("BYPC_CONFIG") or "config.toml"))
 @app.before_serving
 async def init():
     await cfg.init()
+    app.secret_key = cfg.app_secret
 
 
 @app.route("/")
@@ -73,6 +74,8 @@ async def register() -> Tuple[Dict[str, str], int]:
             },
             400,
         )
+    
+    session['token'] = token.token.hex
     return ({"token": token.token.hex}, 200)
 
 
@@ -114,6 +117,9 @@ async def login() -> Tuple[Dict[str, str], int]:
             },
             401,
         )
+
+
+    session['token'] = token.token.hex
     return ({"token": token.token.hex}, 200)
 
 

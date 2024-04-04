@@ -35,6 +35,7 @@ class Token:
 class Config:
     _db_conn: Connection
     _hasher: PasswordHasher
+    app_secret: str
 
     def __init__(self, path: Path):
         """
@@ -44,6 +45,7 @@ class Config:
         with open(path, "rb") as f:
             config_raw = load(f)
             self._db_conn = connect(config_raw["db_path"])
+            self.app_secret = config_raw["app_secret"]
 
         self.expiration_time = int(config_raw.get("expiration_time") or 3600)
 

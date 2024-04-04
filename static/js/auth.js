@@ -37,7 +37,7 @@ function onRegister() {
             data: JSON.stringify(registerData),
             success: function(response) {
                 console.log(response);
-                window.location.href="/auth";
+                window.location.href = "/";
             },
             error: function (err) {
                 console.log(err);
@@ -75,6 +75,7 @@ function onLogin() {
         data: JSON.stringify(loginData),
         success: function(response) {
             console.log(response);
+            window.location.href = "/";
         },
         error: function (err) {
             console.log(err);
