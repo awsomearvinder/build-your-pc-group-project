@@ -23,6 +23,13 @@ async def init():
 async def hello():
     return await render_template("index.html")
 
+@app.route("/auth")
+async def openLogin():
+    return await render_template('auth.html')
+
+@app.route("/registration")
+async def openRegister():
+    return await render_template('register.html')
 
 @app.route("/store/<path:path>")
 async def store(path):

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class = "auth-page">
+    <div class="auth-container">
+        <div class="auth-content">
+            <h1>Register</h1>
+            <form id="form-register">
+                <label for="register-email">Email</label>
+                <input id="register-email" type="email" required>
+                <label for="register-username">Username</label>
+                <input id="register-username" type="text" required>
+                <label for="register-password">Password</label>
+                <input id="register-password" type="password" required>
+                <label for="register-confirm">Confirm Password</label>
+                <input id="register-confirm" type="password" required>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
