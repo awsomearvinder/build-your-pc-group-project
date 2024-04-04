@@ -68,7 +68,7 @@ function onLogin() {
     };
 
     $.ajax({
-        url: "URL_HERE",
+        url: "/login",
         method: "POST",
         contentType: "application/json; charset=UTF-8",
         dataType: "json",
