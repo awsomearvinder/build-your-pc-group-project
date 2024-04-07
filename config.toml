@@ -1,2 +1,3 @@
 db_path = "bypc.db"
 app_secret = "CHANGE ME"
+debug_mode = true
