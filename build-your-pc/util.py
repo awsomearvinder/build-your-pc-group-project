@@ -36,6 +36,7 @@ class Config:
     _db_conn: Connection
     _hasher: PasswordHasher
     app_secret: str
+    debug_mode: bool
 
     def __init__(self, path: Path):
         """
@@ -44,6 +45,7 @@ class Config:
         """
         with open(path, "rb") as f:
             config_raw = load(f)
+            self.debug_mode = bool(config_raw["debug_mode"])
             self._db_conn = connect(config_raw["db_path"])
             self.app_secret = config_raw["app_secret"]
 

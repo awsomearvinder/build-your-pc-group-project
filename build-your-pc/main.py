@@ -18,6 +18,7 @@ cfg = util.Config(Path(os.getenv("BYPC_CONFIG") or "config.toml"))
 async def init():
     await cfg.init()
     app.secret_key = cfg.app_secret
+    app.debug = cfg.debug_mode
 
 
 @app.route("/")
