@@ -7,6 +7,7 @@ from tomllib import load
 from dataclasses import dataclass
 import uuid
 import time
+from typing import Literal
 
 from migrations import migrate
 
@@ -23,6 +24,11 @@ class UserAlreadyExists(Error):
 
 
 class WrongUsernameOrPassword(Error):
+    def __init__(self):
+        pass
+
+
+class InvalidComponentType(Error):
     def __init__(self):
         pass
 
@@ -117,3 +123,18 @@ class Config:
         user = User(user["username"], user["id"])
         token = await self._generate_token(username)
         return (user, token)
+
+    async def get_components(
+        self, kind: Literal["cpu", "gpu", "psu", "memory", "chassis", "motherboard"]
+    ):
+        if kind not in [
+            "cpu",
+            "memory",
+            "gpu",
+            "case",
+            "motherboard",
+            "psu",
+        ]:
+            raise InvalidComponentType()
+        results = await self._db_conn.execute(f"SELECT * FROM pc.{kind}")
+        return [dict(item) for item in await results.fetchall()]

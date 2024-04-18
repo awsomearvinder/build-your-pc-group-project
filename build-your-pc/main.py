@@ -137,5 +137,23 @@ async def static(path):
     return await send_from_directory("static", path)
 
 
+@app.route("/components/<kind>")
+async def get_components(kind: str):
+    try:
+        print(kind.strip())
+        # NOTE: This would normally be unsafe, but since we validate
+        # component above it's fine to directly concatenate the component
+        # into the SQL string.
+        return await cfg.get_components(kind.strip())
+    except util.InvalidComponentType as e:
+        return (
+            {
+                "cause": f"Invalid pc component type given.",
+                "error": e.__class__.__name__,
+            },
+            404,
+        )
+
+
 if __name__ == "__main__":
     app.run()
