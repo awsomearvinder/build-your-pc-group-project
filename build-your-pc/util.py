@@ -55,6 +55,7 @@ class Config:
 
     async def init(self):
         await self._db_conn
+        await self._db_conn.execute("ATTACH 'components.db' AS pc")
         self._db_conn.row_factory = aiosqlite.Row
         await migrate(self._db_conn)
 
