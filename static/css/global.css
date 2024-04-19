@@ -287,7 +287,7 @@ table .th-selection {
 }
 
 .name-column {
-    min-width: 150px;
+    width: 375px;
 }
 
 .name-cell, .price-cell {

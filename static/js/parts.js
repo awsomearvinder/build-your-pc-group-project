@@ -1,7 +1,7 @@
 const specialCases = {
     "graphics": "Integrated Graphics",
     "smt": "SMT",
-    "cas_latency": "CAS Latency",
+    "latency": "CAS Latency",
 }
 
 function onLoadDashboard(component) {
@@ -10,6 +10,16 @@ function onLoadDashboard(component) {
 
 function onLoadPartList(component) {
     fetchPartData(component).then((data) => {
+        if (component === "memory") {
+            data = data.map((item) => {
+                return {
+                    "name": item.name,
+                    "Count / Size": item.count + " x " + item.size + "GB",
+                    "latency": item.latency,
+                    "speed": item.speed
+                }
+            })
+        }
         formatPartsTable(data);
     })
 }
@@ -30,17 +40,17 @@ function formatPartsTable(data) {
     for (let i = 0; i < 50; i++) {
         const name = data[i].name;
         delete data[i].name;
+        tableString = tableString + "<tr><td class='name-cell'>" + name + "</td>";
         // const price = data[i].price ? data[i].price : "-";
         // delete data[i].price;
-        tableString = tableString + "<tr><td class='name-cell'>" + name + "</td>";
         for (let prop in data[i]) {
             const value = data[i][prop] ?? "-";
             tableString = tableString + "<td>" + value + "</td>";
         }
         tableString = tableString + "<td class='price-cell'></td>";
-        tableString = tableString + "<td><button>Add</button></td>";
+        tableString = tableString + "<td><button>Add</button></td></tr>";
     }
-    // console.log(data);
+    tableString = tableString + "</tbody>";
     $('#parts-list').html(tableString);
 
 }
@@ -58,7 +68,6 @@ async function fetchPartData(component) {
     return $.ajax({
         url: url,
         method: "GET",
-        // contentType: "application/json; charset=UTF-8",
         dataType: "json",
         success: function (res) {
             return res;
