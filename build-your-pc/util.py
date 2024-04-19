@@ -131,7 +131,7 @@ class Config:
             "cpu",
             "memory",
             "gpu",
-            "case",
+            "chassis",
             "motherboard",
             "psu",
         ]:

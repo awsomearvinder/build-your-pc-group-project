@@ -27,11 +27,19 @@ async def hello():
 
 @app.route("/auth")
 async def openLogin():
-    return await render_template('auth.html')
+    return await render_template('auth/auth.html')
 
 @app.route("/registration")
 async def openRegister():
-    return await render_template('register.html')
+    return await render_template('auth/register.html')
+
+@app.route("/parts-dashboard")
+async def openPartDashboard():
+    return await render_template('part-picker/parts-dashboard.html')
+
+@app.route("/products/<component>")
+async def openPartsList(component):
+    return await render_template('part-picker/parts-list.html')
 
 @app.route("/store/<path:path>")
 async def store(path):
