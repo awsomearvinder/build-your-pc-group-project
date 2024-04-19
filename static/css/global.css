@@ -41,12 +41,13 @@ nav .right-aligned-nav * {
 body {
   margin: 0;
   padding: 0;
+  font-family: Roboto, serif;
 }
 
 .cards {
   flex-direction: row;
   display: flex;
-  align-items: top;
+  align-items: start;
   justify-content: center;
 }
 
@@ -155,4 +156,154 @@ footer {
 
 .input-error {
     border: 1px solid red !important;
+}
+
+/* Parts Dashboard Page */
+.parts-dashboard {
+    width: 100%;
+    min-height: 90vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.parts-dashboard-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    color: white;
+    font-size: 20pt;
+    font-weight: bold;
+    background-color: #11557C;
+}
+
+.parts-table-container {
+    width: 70%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button:disabled {
+    cursor: none;
+    background-color: darkgrey;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table th {
+    padding: 0.5rem 0.5rem 0.5rem 0;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    font-size: 0.6875rem;
+    line-height: 1;
+    font-weight: normal;
+    text-align: left;
+    vertical-align: bottom;
+}
+
+table tbody tr {
+    border-color: #d2d2d2;
+    border-top-style: solid;
+    border-top-width: 1px;
+    height: 50px;
+}
+
+tbody button {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #3a8fb4;
+    color: white;
+    font-weight: bold;
+    height: 30px;
+    width: auto;
+    cursor: pointer;
+}
+
+table .th-component {
+    min-width: 200px;
+}
+
+table .th-selection {
+    min-width: 500px;
+}
+
+.th-price, .th-shipping, .th-total {
+    min-width: 65px;
+}
+
+.th-remove {
+    min-width: 40px;
+}
+
+.td-component {
+    font-weight: bold;
+    font-size: 12pt;
+    color: #11557C;
+}
+
+/* Parts-List Page */
+.parts-list-container {
+    width: 100%;
+    min-height: 90vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.parts-list-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    color: white;
+    font-size: 20pt;
+    font-weight: bold;
+    background-color: #11557C;
+}
+
+.parts-table-box {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.parts-list-filter {
+    width: 240px;
+    border: solid 1px black;
+}
+
+.parts-list-table {
+    width: 100%;
+    border: solid 1px black;
+}
+
+.name-column {
+    min-width: 150px;
+}
+
+.name-cell, .price-cell {
+    font-size: 12pt !important;
+    font-weight: 500 !important;
+}
+
+.parts-list-table tbody td {
+    font-weight: 300;
+    font-size: 10pt;
+}
+
+.price-column {
+    width: 70px;
+}
+
+.add-column {
+    width: 40px;
 }
