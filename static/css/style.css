@@ -232,6 +232,11 @@ header {
     right: 0;
 }
 
+.product-img {
+    width: 20rem;
+    height: 20rem;
+}
+
 .product_add_cart {
     color: var(--white-color-alt);
     font-size: 1.2rem;
@@ -336,6 +341,9 @@ input[type="submit"]:hover {
     background-color: var(--second-color);
     display: flex;
     flex-direction: column;
+
+    padding-bottom: 2rem;
+    padding-top: 2rem;
 }
 
 .footer-title {
@@ -597,8 +605,6 @@ input[type="submit"]:hover {
     .top-footer {
         flex-direction: row;
         justify-content: space-around;
-        padding-bottom: 2rem;
-        padding-top: 2rem;
     }
 
     .footer-title {
