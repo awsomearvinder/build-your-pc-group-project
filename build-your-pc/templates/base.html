@@ -1,30 +1,52 @@
 <!DOCTYPE HTML>
 <html>
+
+ <!-- ION Icons for small icons: arrows, buttons, etc-->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
   <head>
-    <title> Build Your PC! </title>
+    <title>BYPC &mdash; Build Your PC!</title>
+
     <link rel="stylesheet" type="text/css" href="/static/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/general.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="/static/js/auth.js"></script>
     <script src="/static/js/parts.js"></script>
   </head>
+
   <body>
-    <nav>
-      <div class = "nav-content-wrapper">
-        <a href="/" class="title">BYPC</a>
-        <div class = "right-aligned-nav">
-          <a href="/"> Home </a>
-          <a href="/parts-dashboard"> Parts </a>
-          {% if session.token is defined %}
-            <a href="/logout"> Logout </a>
-          {% else %}
-            <a href="/auth"> Register|Login </a>
-          {% endif %}
-        </div>
-      </div>
-    </nav>
+    <header class="header nav-open">
+      <a href="#">
+        BYPC
+        <img src="" alt="" class="lgoo" />
+      </a>
+
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+            <li><a href="#" class="main-nav-link">Home</a></li>
+            <li><a href="/parts-dashboard" class="main-nav-link">Parts</a></li>
+
+            {% if session.token is defined %}
+            <li><a href="/logout" class="main-nav-link">Logout</a></li>
+            {% else %}
+            <li><a href="/auth" class="main-nav-link nav-cta">Register|Login</a></li>
+            {% endif %}
+        </ul>
+      </nav>
+
+      <button class="btn-mobile-nav">
+        <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+        <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+      </button>
+    </header>
+
     <main>
       {% block content %}
       {% endblock %}
