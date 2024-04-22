@@ -19,19 +19,22 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="/static/js/auth.js"></script>
     <script src="/static/js/parts.js"></script>
+    <script src="/static/js/front-end-func.js"></script>
   </head>
 
   <body>
     <header class="header nav-open">
-      <a href="#">
+      <a href="/">
         BYPC
         <img src="" alt="" class="lgoo" />
       </a>
 
       <nav class="main-nav">
         <ul class="main-nav-list">
-            <li><a href="#" class="main-nav-link">Home</a></li>
+            <li><a href="/" class="main-nav-link">Home</a></li>
             <li><a href="/parts-dashboard" class="main-nav-link">Parts</a></li>
+            <li><a href="#testimonals" class="main-nav-link">Testimonals</a></li>
+            <li><a href="#pricing" class="main-nav-link">Pricing</a></li>
 
             {% if session.token is defined %}
             <li><a href="/logout" class="main-nav-link">Logout</a></li>
@@ -40,19 +43,68 @@
             {% endif %}
         </ul>
       </nav>
-
-      <button class="btn-mobile-nav">
-        <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
-        <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
-      </button>
     </header>
 
     <main>
       {% block content %}
       {% endblock %}
     </main>
-    <footer>
-      Copyrighted by Contributors of BuildYourPc 2024
+
+    <footer class="footer">
+      <div class="container grid grid--footer">
+        <div class="logo-col">
+          <a href="#" class="footer-logo">    
+            <!--Logo-->        
+          </a>
+
+          <ul class="social-links">
+            <li><a href="#" class="footer-link"><ion-icon class="social-icon" name="logo-instagram"></ion-icon></a></li>
+            <li><a href="#" class="footer-link"><ion-icon class="social-icon" name="logo-facebook"></ion-icon></a></li>
+            <li><a href="#" class="footer-link"><ion-icon class="social-icon" name="logo-twitter"></ion-icon></a></li>
+          </ul>
+
+          <p class="copyright">Copyright &copy; <span class="year">2024</span> by BYPC, Inc. All rights reserved</p>
+        </div>
+
+        <div class="address-col">
+          <p class="footer-heading">Contact us</p>
+          <address class="contacts">
+            <p>175 W Mark St, Winona, MN 55987
+            </p>
+            <p>
+              <a href="tel:415-201-6370">123-123-1234</a><br>
+              <a href="mailto:hello@bypc.com">hello@gmail.com</a>
+            </p>
+          </address>
+        </div>
+
+        <nav class="nav-col">
+          <p class="footer-heading">Account</p>
+          <ul class="footer-nav">
+            <li><a href="/auth" class="footer-link">Create account</a></li>
+            <li><a href="/auth" class="footer-link">Sign in</a></li>
+            <li><a href="#" class="footer-link">IOS app</a></li>
+            <li><a href="#" class="footer-link">Android app</a></li>
+          </ul>
+        </nav>
+
+        <nav class="nav-col">
+          <p class="footer-heading">Company</p>
+          <ul class="footer-nav">
+            <li><a href="#" class="footer-link">About BYPC</a></li>
+            <li><a href="#" class="footer-link">For Business</a></li>
+            <li><a href="#" class="footer-link">Careers</a></li>
+          </ul>
+        </nav>
+
+        <nav class="nav-col">
+          <p class="footer-heading">Resources</p>
+          <ul class="footer-nav">
+            <li><a href="#" class="footer-link">Help center</a></li>
+            <li><a href="#" class="footer-link">Privacy & terms</a></li>
+          </ul>
+        </nav>
+      </div>
     </footer>
   </body>
 </html>

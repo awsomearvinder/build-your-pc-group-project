@@ -4,3 +4,106 @@
     --main-color-blue-light: #a5d8ff;
 }
 
+.margin-right-sm {
+    margin-right: 1.6rem !important;
+  }
+  
+  .margin-bottom-md {
+    margin-bottom: 4.8rem !important; 
+  }
+  
+  .heading-primary {
+    font-size: 5.2rem;
+    line-height: 1.05;
+    font-weight: 700;
+    color: #333;
+    letter-spacing: -0.5px;
+    margin-bottom: 3.2rem;
+  }
+  
+  .heading-secondary {
+   font-size: 4.4rem;
+   line-height: 1.2;
+   font-weight: 700;
+   color: #333;
+   letter-spacing: -0.5px;
+   margin-bottom: 9.6rem;
+  }
+  
+  .grid {
+    display: grid;
+    column-gap: 6.4rem;
+    gap: 9.6rem;
+  }
+  
+  .grid:last-child {
+    margin-bottom: 0;
+  }
+  
+  .grid--cetner-v {
+    align-items: center;
+  }
+  
+  .grid--2--cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grid--3--cols {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .grid--4--cols {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .grid--5--cols {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  
+  .grid--footer {
+    grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
+  }
+  
+  .container {
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0 3.2rem;
+  }
+  
+  strong {
+    font-weight: 500;
+  }
+  
+  .center-text {
+    text-align: center;
+  }
+  
+  .list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+  
+  .list-item {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+  
+    font-size: 1.8rem;
+  }
+  
+  .list-icon {
+    width: 3rem;
+    height: 3rem;
+    color: #37b24d;
+  }
+  
+  .btn--form {
+    background-color: ;
+    align-self: end;
+  }
+  
+  *:focus {
+    outline: none;
+  }

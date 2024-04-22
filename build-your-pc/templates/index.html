@@ -1,30 +1,377 @@
 {% extends "base.html" %}
 {% block content %}
 <!-- Need to make a pretty banner image or something. -->
-<div class = "banner">
-  <div class = "banner-content">
-    <h2> BYPC </h2>
-    <h1> Design your PC in a way you never have before. </h1>
+<section class="section-hero">
+  <div class="hero"> 
+    <div class="hero-text-box">
+      <h1 class="heading-primary">Build Your PC with the Newest Parts</h1>
+      <p class="hero-description">We provide part selection, pricing, and compatibility guidance for do-it-yourself computer builders.
+      </p>
+      <a href="/auth" class="btn btn--full margin-right-sm">Start Building</a>
+      <a href="#" class="btn btn--outline">Learn more &darr;</a>
+      <div class="pc-sets">
+        <div class="pc-imgs">
+          <img src="/static/img/customers/customer-1.jpg" alt="Customer photo" />
+          <img src="/static/img/customers/customer-2.jpg" alt="Customer photo" />
+          <img src="/static/img/customers/customer-3.jpg" alt="Customer photo" />
+          <img src="/static/img/customers/customer-4.jpg" alt="Customer photo" />
+          <img src="/static/img/customers/customer-5.jpg" alt="Customer photo" />
+          <img src="/static/img/customers/customer-6.jpg" alt="Customer photo" />
+        </div>
+        <p class="pc-text"><span>50,000+</span> PC Configured last year!</p>
+      </div>
+    </div>
+    
+    <div class="pc-img-box">
+      <img src="/static/img/PC-header.jpg" class="pc-img" alt="NO IMAGE" />
+    </div>
   </div>
-</div>
-<div class = "cards">
-  <div class = "card">
-    <img alt="drawing of a cat" src = "https://placehold.co/600x400" />
-    <h3> Explore </h3>
-    <p> You can browse - and even suggest - changes to certain lists! </p>
+</section>
+
+<section class="section-featured">
+  <div class="container">
+    <h2 class="heading-featured-in">As featured in</h2>
+    <div class="logos">
+      <img src="/static/img/logos/windows.png" class="" alt="Windows logo" />
+      <img src="/static/img/logos/apple.jpg" class="" alt="Apple logo" />
+      <img src="/static/img/logos/dell.jpg" class="" alt="Dell logo" />
+      <img src="/static/img/logos/ibm.jpg" class="" alt="IBM logo" />
+    </div>
   </div>
-  <div class = "card">
-    <img alt="drawing of a cat" src = "https://placehold.co/600x400" />
-    <h3> Community </h3>
-    <p> Join our community of PC enthusiasts, browse information, and keep up to date! </p>
+</section>
+
+<!-- SECTION A.I -->
+<section class="section-AI">
+  <div class="container">
+    <span class="subheading center-text">PC Sets</span>
+    <h2 class="heading-secondary center-text">BYPC AI chooses from 5,000+ PC Sets</h2>
+
+    <div class="container grid grid--3--cols margin-bottom-md">
+      <div class="pc">
+        <img src="/static/img/pcs/gaming-pc.jpg" class="pc-img" alt="" />
+        
+        <div class="pc-content">
+          <div class="pc-tags">
+            <span class="tag tag--gaming">Game</span>
+          </div>
+        
+          <p class="pc-title">Gaming PC Setup</p>
+
+          <ul class="pc-attributes">
+            <li class="pc-attribute"><ion-icon name="checkmark-circle-outline" class="pc-icon"></ion-icon>
+              <span>Ryzen 9 7900</span>
+            </li>
+            <li class="pc-attribute"><ion-icon name="checkmark-circle-outline" class="pc-icon"></ion-icon><span>DDR4 16GB RAM &reg;</span>
+            </li>
+            <li class="pc-attribute"><ion-icon name="checkmark-circle-outline" class="pc-icon"></ion-icon><span>GeForce RTX 4070</span>
+            </li>
+            <li class="pc-attribute"><ion-icon name="star-outline" class="pc-icon"></ion-icon>
+              <span>4.9 rating (537)</span>
+            </li>              
+          </ul>
+        </div>
+      </div>
+
+      <div class="pc">
+        <img src="/static/img/pcs/office-pc.jpg" class="pc-img" alt="" /> 
+
+        <div class="pc-content">
+          <div class="pc-tags">
+            <span class="tag tag--gaming">Office</span> 
+            <span class="tag tag--gaming-2">Work</span>           
+          </div>
+          
+          <p class="pc-title">Office PC Setup</p>
+          
+          <ul class="pc-attributes">
+            <li class="pc-attribute"><ion-icon name="checkmark-circle-outline" class="pc-icon"></ion-icon>
+              <span>Intel Core i9</span>
+            </li>
+            <li class="pc-attribute"><ion-icon name="checkmark-circle-outline" class="pc-icon"></ion-icon><span>DDR3 8GB RAM &reg;</span>
+            </li>
+            <li class="pc-attribute"><ion-icon name="checkmark-circle-outline" class="pc-icon"></ion-icon><span>GeForce RTX 4000</span>
+            </li>
+            <li class="pc-attribute"><ion-icon name="checkmark-circle-outline" class="pc-icon"></ion-icon>
+              <span>4.8 rating (441)</span>
+            </li>              
+          </ul>       
+        </div>
+      </div>
+
+      <div class="">
+        <h3 class="heading-tertiary">Works with:</h3>
+        <ul class="list">
+          <li class="list-item">
+            <ion-icon name="checkmark-outline" class="list-icon"></ion-icon>
+            <span>PUBG: Battle Ground</span>
+          </li>
+          <li class="list-item">
+            <ion-icon name="checkmark-outline" class="list-icon"></ion-icon>
+            <span>League of Legends</span>
+          </li>
+          <li class="list-item">
+            <ion-icon name="checkmark-outline" class="list-icon"></ion-icon>
+            <span>Xbox Game</span>
+          </li>
+          <li class="list-item">
+            <ion-icon name="checkmark-outline" class="list-icon"></ion-icon>
+            <span>Nintendo Switch</span>
+          </li>
+          <li class="list-item">
+            <ion-icon name="checkmark-outline" class="list-icon"></ion-icon>
+            <span>FPS</span>
+          </li>
+          <li class="list-item">
+            <ion-icon name="checkmark-outline" class="list-icon"></ion-icon>
+            <span>RPG</span>
+          </li>
+          <li class="list-item">
+            <ion-icon name="checkmark-outline" class="list-icon"></ion-icon>
+            <span>Battle Royale</span>
+          </li>
+          <li class="list-item">
+            <ion-icon name="checkmark-outline" class="list-icon"></ion-icon>
+            <span>MMORPG</span>
+          </li>
+          <li class="list-item">
+            <ion-icon name="checkmark-outline" class="list-icon"></ion-icon>
+            <span>Sports Games</span>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
-  <div class = "card">
-    <img alt="drawing of a cat" src = "https://placehold.co/600x400" />
-    <h3> Contribute </h3>
-    <p> We're an open platform - both our code as well as development. Contribute, give feedback,
-        and report bugs! We promise we look. </p>
+
+  <div class="container all-pcs">
+    <a href="/parts" class="link">Shop PC Parts &rarr;</a>
   </div>
-</div>
+</section>
+
+<section class="section-testimonials" id="testimonials">
+  <div class="testimonial-container">
+    <span class="subheading">Testimonals</span>
+    <h2 class="heading-secondary">
+      You'll build the Best PC EVER
+    </h2>
+    
+    <div class="testimonials">
+      <figure class="testimonial">
+        <img src="/static/img/customers/dave.jpg" alt="Dave" class="testimonial-img" />
+        <blockquote class="testimonial-text">
+          BYPC revolutionized the way I build my custom PCs.Highly recommended for anyone venturing into PC building!
+        </blockquote>
+        <p class="testimonial-name">&mdash; Dave Bryson</p>
+      </figure>
+
+      <figure class="testimonial">
+        <img src="/static/img/customers/ben.jpg" alt="Dave" class="testimonial-img" />
+        <blockquote class="testimonial-text">
+          As someone who's always been intimidated by the complexity of PC building, BYPC was a game-changer. The intuitive interface, detailed specifications, and build guides helped me create my dream rig without any compatibility issues.
+        </blockquote>
+        <p class="testimonial-name">&mdash; Ben Hadley</p>
+      </figure>
+
+      <figure class="testimonial">
+        <img src="/static/img/customers/steve.jpg" alt="Dave" class="testimonial-img" />
+        <blockquote class="testimonial-text">
+          I've been using BYPC for years, and it's been my go-to resource for planning and assembling my gaming setups. The ability to save builds, track price fluctuations, and get alerts for deals has saved me both time and money.
+        </blockquote>
+        <p class="testimonial-name">&mdash; Steve Miller</p>
+      </figure>
+      
+      <figure class="testimonial">
+        <img src="/static/img/customers/hannah.jpg" alt="Dave" class="testimonial-img" />
+        <blockquote class="testimonial-text">
+          BYPC is a gem for both beginners and experienced builders alike. The community-driven platform, combined with powerful search filters and real-time pricing information, makes it the ultimate destination for building, upgrading, or troubleshooting PCs.
+        </blockquote>
+        <p class="testimonial-name">&mdash; Hannah Smith</p>
+      </figure>
+    </div>
+  </div>
+
+  <div class="pc-gallery">
+    <figure class="pc-item">
+      <img src="/static/img/pc/pc1.jpg" alt="" class="" />
+    </figure>
+      
+    <figure class="pc-item">
+      <img src="/static/img/pc/pc2.jpg" alt="" class="" />
+    </figure>
+
+    <figure class="pc-item">
+      <img src="/static/img/pc/pc3.jpg" alt="" class="" />
+    </figure>
+
+    <figure class="pc-item">
+      <img src="/static/img/pc/pc4.jpg" alt="" class="" />
+    </figure>
+
+    <figure class="pc-item">
+      <img src="/static/img/pc/pc5.jpg" alt="" class="" />
+    </figure>
+
+    <figure class="pc-item">
+      <img src="/static/img/pc/pc6.jpg" alt="" class="" />
+    </figure>
+
+    <figure class="pc-item">
+      <img src="/static/img/pc/pc7.jpg" alt="" class="" />
+    </figure>
+
+    <figure class="pc-item">
+      <img src="/static/img/pc/pc8.jpg" alt="" class="" />
+    </figure>
+
+    <figure class="pc-item">
+      <img src="/static/img/pc/pc9.jpg" alt="" class="" />
+    </figure>
+
+    <figure class="pc-item">
+      <img src="i/static/mg/pc/pc10.jpg" alt="" class="" />
+    </figure>
+
+    <figure class="pc-item">
+      <img src="i/static/mg/pc/pc11.jpg" alt="" class="" />
+    </figure>
+
+    <figure class="pc-item">
+      <img src="i/static/mg/pc/pc12.jpg" alt="" class="" />
+    </figure>
+  </div>
+</section>
+
+<sectoin class="section-pricing" id="pricing">
+  <div class="container">
+    <span class="subheading">Prcing</span>
+    <h2 class="heading-secondary">
+      Recommended PC Set Values
+    </h2>
+  </div>
+
+  <div class="container grid grid--2--cols margin-bottom-md">
+    <div class="pricing-plan plan--starter">
+      <header class="plan-header">            
+        <p class="plan-name">Starter</p>
+        <p class="plan-price"><span>$</span>499</p>
+        <p class="plan-text">Affordable PC Sets</p>
+      </header>
+
+      <ul class="list">
+        <li class="list-item">
+          <ion-icon name="checkmark-outline" class="list-icon"></ion-icon>
+          <span>AMD Ryzen 5 3600</span>
+        </li>
+      </ul>
+
+        <ul class="list">
+          <li class="list-item">
+            <ion-icon name="checkmark-outline" class="list-icon"></ion-icon>
+            <span>NVIDIA GeForce GTX 1660</span>
+          </li>
+        </ul>
+
+          <ul class="list">
+            <li class="list-item">
+              <ion-icon name="checkmark-outline" class="list-icon"></ion-icon>
+              <span>DDR4 16GB</span>
+            </li>
+          </ul>
+
+          <ul class="list">
+            <li class="list-item">
+              <ion-icon name="checkmark-outline" class="list-icon"></ion-icon>
+              <span>Samsung 970 200GB</span>
+            </li>
+          </ul>
+
+          <div class="plan-sign-up">
+            <a href="/parts" class="btn btn--full">Start Building</a>
+          </div>
+    </div>
+
+    <div class="pricing-plan pricing-plan--complete">
+      <header class="plan-header">            
+        <p class="plan-name">Professional</p>
+        <p class="plan-price"><span>$</span>949</p>
+        <p class="plan-text">Professional Gaming PC Sets</p>
+      </header>
+
+      <ul class="list">
+        <li class="list-item">
+          <ion-icon name="checkmark-outline" class="list-icon"></ion-icon>
+          <span>AMD Ryzen 7 5800X</span>
+        </li>
+      </ul>
+
+        <ul class="list">
+          <li class="list-item">
+            <ion-icon name="checkmark-outline" class="list-icon"></ion-icon>
+            <span>GeForce RTX 3060 Ti </span>
+          </li>
+        </ul>
+
+          <ul class="list">
+            <li class="list-item">
+              <ion-icon name="checkmark-outline" class="list-icon"></ion-icon>
+              <span>DDR4 32GB</span>
+            </li>
+          </ul>
+
+          <ul class="list">
+            <li class="list-item">
+              <ion-icon name="checkmark-outline" class="list-icon"></ion-icon>
+              <span>Samsung 970 500GB</span>
+            </li>
+          </ul>
+
+          <div class="plan-sign-up">
+            <a href="/parts" class="btn btn--full">Start Building</a>
+          </div>
+    </div>
+  </div>
+</sectoin>
+
+<section class="section-cta" id="cta">
+  <div class="container">
+    <div class="cta">
+      <div class="cta-text-box">
+        <h2 class="heading-secondary">First Order - Shipping FREE!</h2>
+        <p class="cta-text">
+          BYPC is waiting for you. Start building your first ever PC today. Make your first order. And the shipping is on us!
+        </p>
+
+        <form action="" class="cta-form">
+          <div>
+            <label for="full-name">Full Name</label>
+            <input id="full-name" type="text" placeholder="John Doe" required />
+          </div>
+
+          <div>
+            <label for="email">Email address</label>
+            <input id="email" type="email" placeholder="user@example.com" required />
+          </div>
+
+          <div>
+            <label for="select-where">Where did you hear from us?</label>
+            <select name="" id="select-where" required>
+              <option value="empty">Please choose one option:</option>
+              <option value="friends">Friends and family</option>
+              <option value="youtube">Youtube video</option>
+              <option value="social-media">Social media</option>
+              <option value="podcast">Podcast</option>
+              <option value="others">Others</option>
+            </select>
+          </div>
+          <button class="btn btn--form">Sign up now</button>
+        </form>
+      </div>
+
+      <div class="cta-img-box" role="img" aria-label="">
+        <!--  -->
+      </div>
+    </div>
+  </div>
+</section>
 
 {% endblock %}
 
