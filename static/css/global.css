@@ -181,7 +181,7 @@ tbody button {
     padding: 0.5rem;
     border: none;
     border-radius: 5px;
-    background-color: #3a8fb4;
+    background-color: var(--main-color-blue);
     color: white;
     font-weight: bold;
     height: 30px;
