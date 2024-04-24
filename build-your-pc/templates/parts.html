@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<table class = "part-component-list">
+  {% for part in parts %}
+    <tr>
+      <td> {{ part.type }} </td>
+      <td> {{ part.name }} </td>
+      <td> <a class="choose-component-btn" href="/components/{{ part.type }}"> Choose {{ part.type }} </a> </td>
+    </tr>
+  {% endfor %}
+</table>
+{% endblock %}
+
