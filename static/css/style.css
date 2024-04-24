@@ -248,10 +248,6 @@ body {
     text-transform: uppercase;
 }
 
-.heading-secondary {
-    margin-bottom: 0;
-}
-
 .heading-tertiary {
     font-size: 2.4rem;
     line-height: 1.2;
@@ -617,7 +613,7 @@ body {
 .cta-img-box {
     background-image: linear-gradient(to right bottom, rgba(235, 151, 78, 0.35),
             rgba(230, 125, 34, 0.35)),
-        url("img/cta.jpg");
+        url("/static/img/cta.jpg");
     background-size: cover;
     background-position: center;
 }
