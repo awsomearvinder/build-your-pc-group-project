@@ -48,7 +48,7 @@ function formatPartsTable(data) {
             tableString = tableString + "<td>" + value + "</td>";
         }
         tableString = tableString + "<td class='price-cell'></td>";
-        tableString = tableString + "<td><button>Add</button></td></tr>";
+        tableString = tableString + "<td><button class='btn btn--full'>Add</button></td></tr>";
     }
     tableString = tableString + "</tbody>";
     $('#parts-list').html(tableString);
