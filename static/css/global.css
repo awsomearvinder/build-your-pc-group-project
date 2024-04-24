@@ -129,17 +129,6 @@
     margin-right: auto;
 }
 
-.parts-dashboard-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-    color: white;
-    font-size: 20pt;
-    font-weight: bold;
-    background-color: #11557C;
-}
-
 .parts-table-container {
     width: 70%;
     margin-top: 20px;
@@ -219,7 +208,7 @@ table .th-selection {
     margin-right: auto;
 }
 
-.parts-list-header {
+.page-header {
     display: flex;
     justify-content: center;
     align-items: center;
