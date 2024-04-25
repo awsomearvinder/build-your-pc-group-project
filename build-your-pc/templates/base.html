@@ -24,9 +24,9 @@
 
   <body>
     <header class="header nav-open">
-      <a href="/">
-        BYPC
-        <img src="" alt="" class="logo" />
+        <a href="/" class="main-nav-link logo-box">
+            <img src="/static/img/pc-logo.png" alt="" class="header-logo" />
+            <p class="header-title">BYPC</p>
       </a>
 
       <nav class="main-nav">
@@ -36,7 +36,7 @@
             {% if session.token is defined %}
             <li><a href="/logout" class="main-nav-link">Logout</a></li>
             {% else %}
-            <li><a href="/auth" class="main-nav-link nav-cta">Register|Login</a></li>
+            <li><a href="/auth" class="main-nav-link nav-cta">Register | Login</a></li>
             {% endif %}
         </ul>
       </nav>

@@ -164,4 +164,5 @@ async def get_components(kind: str):
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
+3

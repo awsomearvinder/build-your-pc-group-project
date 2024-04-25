@@ -2,9 +2,25 @@
 {% block content %}
 <div class="parts-dashboard">
     <div class="page-header">
-        Header
+        Your Parts
     </div>
     <div class="parts-table-container">
+
+        <div class="view-lists-content">
+            <select class="user-builds margin-right" name="user-builds" id="build-list">
+                <option name="1">Build 1</option>
+                <option name="2">Build 2</option>
+            </select>
+            {% if session.token is defined %}
+            <button class="btn btn--full page-button margin-right" onclick="saveList()">Save New</button>
+            <button class="btn btn--full page-button" onclick="updateList()">Update Existing</button>
+            {% else %}
+            <button class="btn btn--full page-button margin-right" disabled>Save New</button>
+            <button class="btn btn--full page-button" disabled>Update Existing</button>
+            {% endif %}
+
+        </div>
+
         <table class="parts-table">
             <thead>
                 <tr>
@@ -19,7 +35,8 @@
             <tbody>
                 <tr id="cpu">
                     <td class="td-component">CPU</td>
-                    <td class="td-selection"><button class="btn btn--full" onclick="onLoadDashboard('cpu')">+ Select</button></td>
+                    <td class="td-selection"><button class="btn btn--full" onclick="onLoadDashboard('cpu')">+ Select</button>
+                    </td>
                     <td class="td-price">-</td>
                     <td class="td-shipping">-</td>
                     <td class="td-total">-</td>
@@ -57,7 +74,7 @@
                     <td class="td-total">-</td>
                     <td class="td-remove"></td>
                 </tr>
-                <tr id="video-card">
+                <tr id="gpu">
                     <td class="td-component">Video Card</td>
                     <td class="td-selection"><button class="btn btn--full" onclick="onLoadDashboard('gpu')">+ Select</button></td>
                     <td class="td-price">-</td>
@@ -65,7 +82,7 @@
                     <td class="td-total">-</td>
                     <td class="td-remove"></td>
                 </tr>
-                <tr id="case">
+                <tr id="chassis">
                     <td class="td-component">Case</td>
                     <td class="td-selection"><button class="btn btn--full" onclick="onLoadDashboard('chassis')">+ Select</button></td>
                     <td class="td-price">-</td>
@@ -73,7 +90,7 @@
                     <td class="td-total">-</td>
                     <td class="td-remove"></td>
                 </tr>
-                <tr id="power-supply">
+                <tr id="psu">
                     <td class="td-component">Power Supply</td>
                     <td class="td-selection"><button class="btn btn--full" onclick="onLoadDashboard('psu')">+ Select</button></td>
                     <td class="td-price">-</td>
@@ -81,7 +98,7 @@
                     <td class="td-total">-</td>
                     <td class="td-remove"></td>
                 </tr>
-                <tr id="operating-system">
+                <tr id="os">
                     <td class="td-component">Operating System</td>
                     <td class="td-selection"><button class="btn btn--full" onclick="onLoadDashboard('os')" disabled>+ Select</button></td>
                     <td class="td-price">-</td>
@@ -93,4 +110,18 @@
         </table>
     </div>
 </div>
+
+<script>
+    $(function() {
+        for (var i = 0; i < localStorage.length; i++) {
+            if (localStorage.key(i)) {
+                const key = localStorage.key(i);
+                const value = localStorage.getItem(key);
+                $('#'+key).children('.td-selection').text(value);
+                $('#'+key).children('.td-remove')
+                    .html("<button class='remove-button' onclick='removeSelection("+key+")'><img class='remove-icon' src='/static/img/exit-icon.svg' alt='remove'></button>");
+            }
+        }
+    })
+</script>
 {% endblock %}

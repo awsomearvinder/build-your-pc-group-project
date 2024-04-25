@@ -7,7 +7,21 @@
   align-items: center;
   background-color: black;
   color: white;
-  font-family: Roboto;
+  font-family: Rubik, 'sans-serif';
+}
+
+.logo-box {
+    display: flex !important;
+    flex-direction: row;
+}
+
+.header-title {
+    font-size: 28pt !important;
+    margin-left: 5px;
+}
+
+.header-logo {
+    width: 40px;
 }
 
 .banner .banner-content h1 {
@@ -41,36 +55,44 @@
     display: flex;
     align-items: center;
     width: 100%;
-    min-height: 90vh;
-    background-color: black;
+    min-height: 70vh;
+    background-color: #fff;
 }
 
 .auth-container {
     margin-left: auto;
     margin-right: auto;
     width: 350px;
-    background-color: ghostwhite;
-    border: 1px solid gray;
+    background-color: #fff;
+    border: 1px solid #cbcbcb;
     border-radius: 5px;
+    box-shadow: 5px 5px 5px #a1a1a1;
 }
 
 .auth-content {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    font-family: Roboto, serif;
+    font-family: Rubik, serif;
 }
 
 .auth-content h1 {
     margin-top: 0;
+    font-size: 24pt;
+    margin-bottom: 20px;
+}
+
+.auth-content label {
+    font-size: 10pt;
 }
 
 .auth-content input {
     height: 35px;
     font-size: 14pt;
-    margin-bottom: 10px;
+    padding-left: 5px;
+    margin-bottom: 14px;
     margin-top: 5px;
-    background-color: #e6e6ea;
+    background-color: #f8f8f8;
     color: dimgray;
     border: 1px solid gray;
     border-radius: 4px;
@@ -133,14 +155,24 @@
     width: 70%;
     margin-top: 20px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
 }
 
+.user-builds {
+    height: 30px;
+    width: 125px;
+}
+
+.view-lists-content {
+    margin: 20px 0 20px 0;
+}
+
 button:disabled {
-    cursor: none;
-    background-color: darkgrey;
+    cursor: default !important;
+    background-color: darkgrey !important;
 }
 
 table {
@@ -152,7 +184,7 @@ table th {
     padding: 0.5rem 0.5rem 0.5rem 0;
     border-bottom-style: solid;
     border-bottom-width: 1px;
-    font-size: 0.6875rem;
+    font-size: 1.125rem;
     line-height: 1;
     font-weight: normal;
     text-align: left;
@@ -166,8 +198,12 @@ table tbody tr {
     height: 50px;
 }
 
-tbody button {
-    padding: 0.5rem;
+.margin-right {
+    margin-right: 0.75rem;
+}
+
+.page-button,tbody button{
+    padding: 0.15rem 1rem 0 1rem;
     border: none;
     border-radius: 5px;
     background-color: var(--main-color-blue);
@@ -200,6 +236,19 @@ table .th-selection {
     color: #11557C;
 }
 
+.td-selection {
+    font-size: 11pt;
+}
+
+.remove-button {
+    background: none;
+    height: 23px;
+}
+
+.remove-icon {
+    width: 10px;
+}
+
 /* Parts-List Page */
 .parts-list-container {
     width: 100%;
@@ -230,12 +279,11 @@ table .th-selection {
 
 .parts-list-filter {
     width: 240px;
-    border: solid 1px black;
+    /*border: solid 1px black;*/
 }
 
 .parts-list-table {
     width: 100%;
-    border: solid 1px black;
 }
 
 .name-column {
