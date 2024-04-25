@@ -34,7 +34,7 @@
             <li><a href="/" class="main-nav-link">Home</a></li>
             <li><a href="/parts-dashboard" class="main-nav-link">Parts</a></li>
             {% if session.token is defined %}
-            <li><a href="/logout" class="main-nav-link">Logout</a></li>
+            <li><a href="/logout" class="main-nav-link" onclick="onLogout()">Logout</a></li>
             {% else %}
             <li><a href="/auth" class="main-nav-link nav-cta">Register | Login</a></li>
             {% endif %}

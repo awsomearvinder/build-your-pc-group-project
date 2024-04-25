@@ -15,6 +15,12 @@ $(function() {
     }
 })
 
+let isAuthenticated = false;
+
+function onLogout() {
+    isAuthenticated = false;
+}
+
 function onRegister() {
     $('.auth-content').children().removeClass('input-error');
 
@@ -75,6 +81,7 @@ function onLogin() {
         data: JSON.stringify(loginData),
         success: function(response) {
             console.log(response);
+            isAuthenticated = true;
             window.location.href = "/";
         },
         error: function (err) {

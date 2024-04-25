@@ -122,6 +122,41 @@ function updateList() {
     }
 }
 
+function loadListNames() {
+    $.ajax({
+        url: "/get-lists",
+        method: "GET",
+        dataType: "json"
+    })
+}
+
+function loadList() {
+    $('#build-list').on('change', function () {
+        let id = $(this).prop('selectedIndex');
+        $.ajax({
+            url: "/get-list/" + id,
+            method: "GET",
+            dataType: "json"
+        }).done(function(data) {
+            if (data.status === 200) {
+                loadListToPage(data);
+            }
+        })
+    })
+}
+
+function loadListToPage(data) {
+    if (data !== null) {
+        Object.keys(data['component']).forEach(key => {
+            const value = data['component'][key];
+            localStorage.setItem(key, value);
+            $('#'+key).children('.td-selection').text(value);
+            $('#'+key).children('.td-remove')
+                .html("<button class='remove-button' onclick='removeSelection("+key+")'><img class='remove-icon' src='/static/img/exit-icon.svg' alt='remove'></button>");
+        })
+    }
+}
+
 function fetchData(id) {
     let data = {
         "component": {
